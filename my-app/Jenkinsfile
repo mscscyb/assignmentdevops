@@ -24,25 +24,25 @@ pipeline {
         stage('Test') {
             steps {
                 // Run the tests using Maven (assuming you have tests configured)
-                sh 'mvn test'
+                sh 'mvn -f my-app/pom.xml test'
             }
         }
 
-        stage('Run') {
-            steps {
-                // You can run the application if desired, for example:
-                sh 'java -jar target/my-application.jar'  // Replace with your actual JAR file path
-            }
-        }
+//         stage('Run') {
+//             steps {
+//                 // You can run the application if desired, for example:
+//                 sh 'java -jar target/my-application.jar'  // Replace with your actual JAR file path
+//             }
+//         }
     }
 
     post {
         // Post actions such as archiving test results, cleanup, etc.
-        always {
-            // Archive the build artifacts and test results (optional)
-            archiveArtifacts '**/target/*.jar'  // Archive JAR files if you want to keep them
-            junit '**/target/test-*.xml'  // Archive test reports (ensure Maven is configured to generate XML reports)
-        }
+//         always {
+//             // Archive the build artifacts and test results (optional)
+//             archiveArtifacts '**/target/*.jar'  // Archive JAR files if you want to keep them
+//             junit '**/target/test-*.xml'  // Archive test reports (ensure Maven is configured to generate XML reports)
+//         }
 
         success {
             // Actions to take when the build is successful
