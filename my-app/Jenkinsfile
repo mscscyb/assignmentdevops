@@ -18,6 +18,7 @@ pipeline {
             steps {
                 // Clean and build the project using Maven
                 sh 'mvn -f my-app/pom.xml clean install'
+                // Clean and package the project using Maven
                 sh 'mvn -f my-app/pom.xml clean package'
             }
         }
