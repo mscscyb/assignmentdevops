@@ -1,5 +1,8 @@
 pipeline {
     agent any  // Runs the pipeline on any available agent
+    triggers {
+            pollSCM('H/5 * * * *') // Polls every 5 minutes
+        }
 
     tools {
         jdk 'JDK21'  // Ensure you have JDK 11 (or your preferred JDK) configured in Jenkins
